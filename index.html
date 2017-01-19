@@ -1,0 +1,105 @@
+<style>
+#bluebox {
+	width:310px;
+	height:258px;
+	background-color:#479aa2 ;
+	padding:5px;
+}
+#titleDesc{
+	text-transform: uppercase;
+	color: #f0f8ff;
+	padding-left: 80px;
+	padding-top:5px;
+}
+#bluebox .blank  {
+	font-family:Arial;
+	font-size:10px;
+	display:block;
+	background-color:white; 
+	padding-top:10px;
+	padding-bottom:10px;
+	color: #55969c !Important;
+	font-weight:bold;
+	padding-left:61px;	 
+	margin-top:8px;
+	margin-left:1px;
+	margin-right: 3px;
+	width:247px;
+	height:40px;
+	background-image:url('thumb.jpg');
+	background-size:40px;
+	background-position:10px center;
+	background-repeat:no-repeat;
+	min-height: 50px;
+	text-decoration:none;
+}
+.blank  {
+	 
+	margin-left:11px;
+	 
+}
+
+.bold{
+font-weight: bold;
+color: #489c9e;
+}
+
+.normal{
+font-weight: normal;
+padding-bottom: 10px;
+color: #a1ced3;
+}
+
+
+</style>
+
+
+
+
+
+
+<div id="bluebox"><div id="titleDesc">Site Contacts</div></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"> 
+
+</script>
+
+<script>
+$(document).ready(function () {
+ 
+	//create JS global variable to encapsulate variables and functions
+	var csTopNavigationWebPart = window.csTopNavigationWebPart||{};
+	//create JS object to encapsulate variables and functions 
+	var csTopNavigationWebPart = {};
+  
+	csTopNavigationWebPart.load = function () {
+
+		//an array storing data		 
+		var siteContacts = [
+		["John Smith", "john.smith@diageo.com", "Lorem ipsum dollar site amet, consectetuer adipiscing elit."],
+		["John Smith", "john.smith@diageo.com", "Lorem ipsum dollar site amet, consectetuer adipiscing elit."], 
+		["John Smith", "john.smith@diageo.com", "Lorem ipsum dollar site amet, consectetuer adipiscing elit."]
+		];
+
+		
+		//iterates through each item in the array		 
+		for (var i=0; i<siteContacts.length;i++){
+
+			var _name = siteContacts[i][0];
+			var _email = siteContacts[i][1];
+			var _desc = siteContacts[i][2].split(',');
+			
+
+			var adiv = '<div class="blank" > <div class="bold">'+_name +'<br>'+_email +'</div> <br>'+ '<div class="normal">'+_desc[0]+', <br>'+_desc[1] +'</div></div> ';
+
+			$('#bluebox').append(adiv);//add the contacts boxes to the HTML element
+			
+		}
+
+	 
+
+	}
+	csTopNavigationWebPart.load();	 
+
+});
+</script>
